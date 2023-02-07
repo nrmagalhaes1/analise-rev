@@ -1,5 +1,5 @@
 from tkinter import *
-import gerarPasta, ordena, RecolherValorPlan, PlotarRegrecao
+from modulos import gerarPasta, ordena, RecolherValorPlan, PlotarRegrecao
 from tkinter.filedialog import askopenfilename
 
 
