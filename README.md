@@ -1,4 +1,4 @@
-## Estudo de REV
+## Automatizando o processo de estudo e definição do volume elementar representativo - (Representative Elementary Volume- REV)
 
 
 > **Status do projeto:** Em andamento
