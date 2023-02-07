@@ -1,5 +1,4 @@
-# testando att
-# # retorna um vetor com as medidas em X, Y e Z
+# retorna um vetor com as medidas em X, Y e Z
 def particaoEixoZ(volumeTotal):
     volume = []
     
