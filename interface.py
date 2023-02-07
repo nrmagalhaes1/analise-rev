@@ -1,5 +1,8 @@
 from tkinter import *
-from modulos import gerarPasta, ordena, RecolherValorPlan, PlotarRegrecao
+from modulos.gerarPasta import *
+from modulos.ordena import *
+from modulos.RecolherValorPlan import *
+from modulos.PlotarRegrecao import *
 from tkinter.filedialog import askopenfilename
 
 
@@ -9,9 +12,9 @@ def menuInicial():
         def PlotarGraficoIntev(volume, phi):
             def PlotarNovoGrafico(x, y, a, b):
         
-                new_x, new_y = ordena.limpar(x, y, a, b)
-                new_x, new_y = ordena.crescente(new_x, new_y)
-                PlotarRegrecao.plotResul2(x, y, new_x, new_y, a, b)
+                new_x, new_y = limpar(x, y, a, b)
+                new_x, new_y = crescente(new_x, new_y)
+                plotResul2(x, y, new_x, new_y, a, b)
                 
             PlotarGraficoIntev = Tk()
             PlotarGraficoIntev.title("Entradas")
@@ -43,12 +46,12 @@ def menuInicial():
         menuInicial.destroy()
         filename = askopenfilename() # Isto te permite selecionar um arquivo
 
-        phi = RecolherValorPlan.recolherValorPhi(filename)
-        volume = RecolherValorPlan.recolherValorvolume(filename)
-        volume, phi = ordena.crescente(volume, phi)
+        phi = recolherValorPhi(filename)
+        volume = recolherValorvolume(filename)
+        volume, phi = crescente(volume, phi)
         
         PlotarGraficoIntev(volume, phi)
-        PlotarRegrecao.plotResul(volume, phi)
+        plotResul(volume, phi)
 
     def gerarSubvolume():
         menuInicial.destroy()
@@ -90,7 +93,7 @@ def menuInicial():
         
         # Botão gerar
         btn = Button(gerarSubvolume, text="Gerar SubVolumes", 
-                    command= lambda: gerarPasta.gerar(nome.get(), [int(eixoX.get()), int(eixoY.get()), int(eixoZ.get())]))
+                    command= lambda: gerar(nome.get(), [int(eixoX.get()), int(eixoY.get()), int(eixoZ.get())]))
         btn.grid(column= 1, row= 4, sticky= W, padx= 5, pady= 5)
         
         # Botão Voltar

@@ -1,9 +1,14 @@
-import particao3Eixo, shutil, fracionamentoX,fracionamentoZ, CriarPasta, os, webbrowser
+from modulos.particao3Eixo import *
+from modulos.fracionamentoX import *
+from modulos.fracionamentoZ import *
+from modulos.CriarPasta import *
+import modulos.formatacaoDeDados as f
+import modulos.posicaoTabela as pt
+import shutil, os, webbrowser
 from tkinter.filedialog import  askdirectory
 from openpyxl import load_workbook
 from tkinter import Tk
-import formatacaoDeDados as f
-import posicaoTabela as pt
+
 Tk().withdraw() 
 
 unidadeDeDisco = str(os.path.abspath(os.sep))
@@ -18,12 +23,12 @@ def gerar(amostra, volume):
     diretorioSalve = askdirectory()
     Tk().withdraw() 
 
-    metodo1 = particao3Eixo.executar(volume)
-    metodo2 = fracionamentoX.executar(volume)
-    metodo3 = fracionamentoZ.executar(volume)
+    metodo1 = executar(volume)
+    metodo2 = executar(volume)
+    metodo3 = executar(volume)
     f.pularLin()
 
-    CriarPasta.CriarSubamostras(diretorioSalve, amostra)
+    CriarSubamostras(diretorioSalve, amostra)
     webbrowser.open(os.path.realpath(f'{diretorioSalve}\Amostra {amostra}'))
 
 # ------------------------------------------------------------------------------------------------------------------------

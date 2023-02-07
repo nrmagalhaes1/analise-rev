@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-import regrecao 
+from modulos.regrecao import *
 
 
 
@@ -63,10 +63,10 @@ def plotResul(x, y):
     ax.scatter(part35Z_x, part35Z_y, s=60, c='#CD853F', alpha=0.7, edgecolors="w");
     ax.scatter(part34Z_x, part34Z_y, s=60, c='#B22222', alpha=0.7, edgecolors="w");
     
-    R2_1 = regrecao.linear(x,y)
-    R2_2 = regrecao.grau(x,y, 2,'red', 'Grau 2')
-    R2_3 = regrecao.grau(x,y, 3, 'blue', 'Grau 3')
-    R2_4 = regrecao.grau(x,y, 4, 'black', 'Grau 4')
+    R2_1 = linear(x,y)
+    R2_2 = grau(x,y, 2,'red', 'Grau 2')
+    R2_3 = grau(x,y, 3, 'blue', 'Grau 3')
+    R2_4 = grau(x,y, 4, 'black', 'Grau 4')
     
     plt.title('Subvolumes', size = 20)
     plt.xlabel('Volume (mm²)')
@@ -145,10 +145,10 @@ def plotResul2(x, y, a, b, inicial, final):
     plt.axhline(y = inicial, color = 'r', linestyle = '-', alpha= 0.2)
     plt.axhline(y = final, color = 'r', linestyle = '-', alpha= 0.2) 
     
-    R2_1 = regrecao.linear(a,b)
-    R2_2 = regrecao.grau(a,b, 2,'red', f'Grau 2')
-    R2_3 = regrecao.grau(a,b, 3, 'blue', f'Grau 3')
-    R2_4 = regrecao.grau(a,b, 4, 'black', f'Grau 4')
+    R2_1 = linear(a,b)
+    R2_2 = grau(a,b, 2,'red', f'Grau 2')
+    R2_3 = grau(a,b, 3, 'blue', f'Grau 3')
+    R2_4 = grau(a,b, 4, 'black', f'Grau 4')
     
     plt.title('Subvolumes', size = 20)
     plt.xlabel('Volume (mm²)')
