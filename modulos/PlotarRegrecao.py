@@ -142,8 +142,8 @@ def plotResul2(x, y, a, b, inicial, final):
     ax.scatter(part35Z_x, part35Z_y, s=60, c='#CD853F', alpha=0.7, edgecolors="w");
     ax.scatter(part34Z_x, part34Z_y, s=60, c='#B22222', alpha=0.7, edgecolors="w");
     
-    plt.axhline(y = inicial, color = 'r', linestyle = '-', alpha= 0.2)
-    plt.axhline(y = final, color = 'r', linestyle = '-', alpha= 0.2) 
+    for i in np.arange(inicial, final, 0.1):
+        plt.axhline(y = i, color = '#e6e6e6', linestyle = '-', alpha= 0.2)
     
     R2_1 = linear(a,b)
     R2_2 = grau(a,b, 2,'red', f'Grau 2')
