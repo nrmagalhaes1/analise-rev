@@ -1,5 +1,4 @@
 
-
 def celulasTabela01():
         celulasTabela01 = []
 

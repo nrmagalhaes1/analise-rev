@@ -2,30 +2,26 @@ import os
 users = str(os.getlogin())
 unidadeDeDisco = str(os.path.abspath(os.sep))
 
-def CriarSubamostras(diretorioSalve, amostra):
-    directoryPach = Rf'{diretorioSalve}\Amostra {amostra}'
-    os.mkdir(directoryPach)
-    
-    directoryPach = Rf'{diretorioSalve}\Amostra {amostra}\Subvolumes'
-    os.mkdir(directoryPach)
 
+def CriarSubamostras(local_de_salvamento, nome_amostra):
+    
+    # Diretório para criação da pasta de amostra e subamostra 
+    local_pasta_amostra = Rf'{local_de_salvamento}\Amostra {nome_amostra}'
+    local_pasta_subvolume = Rf'{local_de_salvamento}\Amostra {nome_amostra}\Subvolumes'
+    
+    # Função geradora das pastas
+    os.mkdir(local_pasta_amostra)
+    os.mkdir(local_pasta_subvolume)
 
     for i in range(0,43):
-        if i == 0:    
-            directoryPach = Rf'{diretorioSalve}\Amostra {amostra}\Subvolumes\ {i}- Amostra {amostra}_volumeTotal'
-            os.mkdir(directoryPach)
-            
+        if i == 0:
+            os.mkdir(local_pasta_subvolume + f'\{i}- Amostra {nome_amostra}_volumeTotal' )
+        
+        elif i > 0 and i<=14:
+            os.mkdir(local_pasta_subvolume + f'\{i}- Amostra {nome_amostra}_particao{i-1}')
+                
+        elif i > 14 and  i <= 28:
+            os.mkdir(local_pasta_subvolume + f'\{i}- Amostra {nome_amostra}_FracX{i-15}')
+                
         else:
-            if i<=14:    
-                directoryPach = Rf'{diretorioSalve}\Amostra {amostra}\Subvolumes\ {i}- Amostra {amostra}_particao{i-1}'
-                os.mkdir(directoryPach)
-                
-            else:
-                if i <= 28:
-                    directoryPach = Rf'{diretorioSalve}\Amostra {amostra}\Subvolumes\ {i}- Amostra {amostra}_FracX{i-15}'
-                    os.mkdir(directoryPach)
-                
-                else:
-                    directoryPach = Rf'{diretorioSalve}\Amostra {amostra}\Subvolumes\ {i}- Amostra {amostra}_FracZ{i-29}'
-                    os.mkdir(directoryPach)
-    return
+            os.mkdir(local_pasta_subvolume + f'\{i}- Amostra {nome_amostra}_FracZ{i-29}')

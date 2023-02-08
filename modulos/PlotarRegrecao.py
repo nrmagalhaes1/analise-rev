@@ -2,8 +2,6 @@ import matplotlib.pyplot as plt
 from modulos.regrecao import *
 from modulos.RecolherValorPlan import *
 
-
-
 def plotResul(x, y, total):
     
     

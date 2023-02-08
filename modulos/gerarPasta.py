@@ -1,10 +1,9 @@
+import shutil, os, webbrowser
 from modulos.particao3Eixo import *
 from modulos.fracionamentoX import *
 from modulos.fracionamentoZ import *
 from modulos.CriarPasta import *
-import modulos.formatacaoDeDados as f
 import modulos.posicaoTabela as pt
-import shutil, os, webbrowser
 from tkinter.filedialog import  askdirectory
 from openpyxl import load_workbook
 from tkinter import Tk
@@ -26,7 +25,6 @@ def gerar(amostra, volume):
     metodo1 = executar(volume)
     metodo2 = executar(volume)
     metodo3 = executar(volume)
-    f.pularLin()
 
     CriarSubamostras(diretorioSalve, amostra)
     webbrowser.open(os.path.realpath(f'{diretorioSalve}\Amostra {amostra}'))
@@ -34,7 +32,7 @@ def gerar(amostra, volume):
 # ------------------------------------------------------------------------------------------------------------------------
 # importando os dados para a planilha método 01
 
-    wb = load_workbook(f'{os.getcwd()}\Modelo.xlsx')
+    wb = load_workbook(f'{os.getcwd()}\analise-rev\modulos\Modelo.xlsx')
     ws = wb['Plan1']
 
     Tabela01 = pt.celulasTabela01()

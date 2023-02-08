@@ -1,5 +1,4 @@
 import openpyxl, os
-from tkinter.filedialog import askopenfilename
 
 users = str(os.getlogin())
 unidadeDeDisco = str(os.path.abspath(os.sep))
