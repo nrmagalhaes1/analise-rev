@@ -1,4 +1,5 @@
 import openpyxl, os
+from tkinter.filedialog import askopenfilename
 
 users = str(os.getlogin())
 unidadeDeDisco = str(os.path.abspath(os.sep))
@@ -54,3 +55,15 @@ def recolherValorvolume(filename):
         c += 1
 
     return phi
+
+def valor_total(filename):
+    t= []
+    path = rf'{filename}'
+    wb_obj = openpyxl.load_workbook(path, data_only= True) 
+    sheet_obj = wb_obj.active
+    cell_obj = sheet_obj.cell(row = 7, column = 7) 
+    t.append(cell_obj.value)
+    cell_obj = sheet_obj.cell(row = 7, column = 11) 
+    t.append(cell_obj.value)
+    
+    return t

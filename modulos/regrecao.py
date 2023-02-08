@@ -29,16 +29,24 @@ def linear(x, y):
 
 
 def grau(x, y, g, c= 'red', l= 'grau'):
+
     x = np.asarray(x)
     y = np.asarray(y)
-    
-    z = np.polyfit(x, y, g)
-    p = np.poly1d(z)
+        
+    if g == 4:
+        ...
+        log_x = np.log(x)
+        log_y = np.log(y)
+        coefficients = np.polyfit(x, log_y, 1)
+        ys = np.exp(coefficients[1]) * np.exp(coefficients[0]*x)
+        plt.plot(x, ys, color= c, linestyle=':')
+        
+    else:
+        z = np.polyfit(x, y, g)
+        p = np.poly1d(z)
 
-    xs = np.linspace(x[0], x[len(x)-1], 1000)
-    plt.plot(xs,p(xs), linestyle=':',color= c)
-
-##############
+        xs = np.linspace(x[0], x[len(x)-1], 1000)
+        plt.plot(xs,p(xs), color= c, linestyle=':')
 
     caracteristicas_2 = PolynomialFeatures(degree=g, include_bias=False)
     x = x.reshape(-1,1)

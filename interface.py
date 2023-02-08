@@ -14,7 +14,7 @@ def menuInicial():
         
                 new_x, new_y = limpar(x, y, a, b)
                 new_x, new_y = crescente(new_x, new_y)
-                plotResul2(x, y, new_x, new_y, a, b)
+                plotResul2(x, y, new_x, new_y, a, b, total)
                 
             PlotarGraficoIntev = Tk()
             PlotarGraficoIntev.title("Entradas")
@@ -49,9 +49,10 @@ def menuInicial():
         phi = recolherValorPhi(filename)
         volume = recolherValorvolume(filename)
         volume, phi = crescente(volume, phi)
+        total = valor_total(filename)
         
         PlotarGraficoIntev(volume, phi)
-        plotResul(volume, phi)
+        plotResul(volume, phi, total)
 
     def gerarSubvolume():
         menuInicial.destroy()

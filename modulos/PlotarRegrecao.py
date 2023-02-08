@@ -1,9 +1,10 @@
 import matplotlib.pyplot as plt
 from modulos.regrecao import *
+from modulos.RecolherValorPlan import *
 
 
 
-def plotResul(x, y):
+def plotResul(x, y, total):
     
     
     partZ_x = x[1:3]
@@ -47,6 +48,8 @@ def plotResul(x, y):
 
     fig, ax = plt.subplots(figsize = (9, 6))
 
+    ax.scatter(total[1], total[0], s = 60, marker = "D");
+    
     ax.scatter(partZ_x, partZ_y, s=60, c='#000000', alpha=0.7, edgecolors="w");
     ax.scatter(partX_x, partX_y, s=60, c='#FF4500', alpha=0.7, edgecolors="w");
     ax.scatter(partY_x, partY_y, s=60, c='#B03060', alpha=0.7, edgecolors="w");
@@ -72,7 +75,7 @@ def plotResul(x, y):
     plt.xlabel('Volume (mm²)')
     plt.ylabel('Phi (%)')
     ax.grid(True)
-    ax.legend(['PartZ', 'PartX', 'PartY',
+    ax.legend(['Total', 'PartZ', 'PartX', 'PartY',
                '1/3 X', '2/3 X', '2/5 X',
                '3/5 X', '3/4 X', '1/3 Z',
                '2/3 Z', '2/5 Z', '3/5 Z',
@@ -81,8 +84,7 @@ def plotResul(x, y):
     plt.show()
     
 
-def plotResul2(x, y, a, b, inicial, final):
-    
+def plotResul2(x, y, a, b, inicial, final, total):
     
     partZ_x = x[1:3]
     partZ_y = y[1:3]
@@ -125,6 +127,7 @@ def plotResul2(x, y, a, b, inicial, final):
 
     fig, ax = plt.subplots(figsize = (9, 6))
     
+    ax.scatter(total[1], total[0], s = 60, marker = "D");
     
     ax.scatter(partZ_x, partZ_y, s=60, c='#000000', alpha=0.7, edgecolors="w");
     ax.scatter(partX_x, partX_y, s=60, c='#FF4500', alpha=0.7, edgecolors="w");
@@ -143,12 +146,11 @@ def plotResul2(x, y, a, b, inicial, final):
     ax.scatter(part34Z_x, part34Z_y, s=60, c='#B22222', alpha=0.7, edgecolors="w");
     
     for i in np.arange(inicial, final, 0.1):
-        plt.axhline(y = i, color = '#e6e6e6', linestyle = '-', alpha= 0.2)
+        plt.axhline(y = i, color = '#D3D3D3', linestyle = '-', alpha= 0.2)
     
     R2_1 = linear(a,b)
-    R2_2 = grau(a,b, 2,'red', f'Grau 2')
-    R2_3 = grau(a,b, 3, 'blue', f'Grau 3')
-    R2_4 = grau(a,b, 4, 'black', f'Grau 4')
+    R2_2 = grau(a,b, 2,'#FF4500', f'Grau 2')
+    R2_4 = grau(a,b, 4, '#000000', f'Grau 4')
     
     plt.title('Subvolumes', size = 20)
     plt.xlabel('Volume (mm²)')
@@ -158,7 +160,7 @@ def plotResul2(x, y, a, b, inicial, final):
                '1/3 X', '2/3 X', '2/5 X',
                '3/5 X', '3/4 X', '1/3 Z',
                '2/3 Z', '2/5 Z', '3/5 Z',
-               '3/4 Z', R2_1, R2_2, R2_3, R2_4], bbox_to_anchor = (1.05, 1), loc='upper left')   
+               '3/4 Z', R2_1, R2_2, R2_4], bbox_to_anchor = (1.05, 1), loc='upper left')   
     plt.tight_layout()
     plt.show() 
     
