@@ -28,12 +28,18 @@ def linear(x, y):
     return f'Linear R²: {round(r2_score(Y, f_previsaoes, force_finite=False),4)}'
 
 
-
 def grau(x, y, g, c= 'red', l= 'grau'):
     x = np.asarray(x)
     y = np.asarray(y)
     
-    
+    z = np.polyfit(x, y, g)
+    p = np.poly1d(z)
+
+    xs = np.linspace(x[0], x[len(x)-1], 1000)
+    plt.plot(xs,p(xs), linestyle=':',color= c)
+
+##############
+
     caracteristicas_2 = PolynomialFeatures(degree=g, include_bias=False)
     x = x.reshape(-1,1)
     x_polinomio_2 = caracteristicas_2.fit_transform(x)
@@ -41,7 +47,4 @@ def grau(x, y, g, c= 'red', l= 'grau'):
     modelo2 = LinearRegression()
     modelo2.fit(x_polinomio_2, y)
     y_polinomio_2 = modelo2.predict(x_polinomio_2)
-    
-    plt.plot(x, y_polinomio_2, linestyle=':',color= c)
     return l+f' R²: {round(r2_score(y, y_polinomio_2, force_finite=False), 4)}'
-
