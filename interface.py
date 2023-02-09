@@ -10,11 +10,11 @@ def menuInicial():
     
     def PlotarGrafico():
         def PlotarGraficoIntev(volume, phi):
-            def PlotarNovoGrafico(x, y, a, b):
+            def PlotarNovoGrafico(x, y, intervalo_inicial, intervalo_final):
         
-                new_x, new_y = limpar(x, y, a, b)
+                new_x, new_y = limpar(x, y, intervalo_inicial, intervalo_final)
                 new_x, new_y = crescente(new_x, new_y)
-                plotResul2(x, y, new_x, new_y, a, b, total)
+                plotResul(x, y, total, new_x, new_y, intervalo_inicial, intervalo_final, replot= 'y')
                 
             PlotarGraficoIntev = Tk()
             PlotarGraficoIntev.title("Entradas")

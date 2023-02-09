@@ -8,6 +8,7 @@ def crescente(x,y):
     
     return new_x, new_y
 
+
 def limpar(x, y, inv_min, inv_max):
     
     new_x = []
