@@ -72,7 +72,7 @@ def menuInicial():
         nome.grid(column= 1, row= 0, sticky= E, padx= 5, pady= 5)
         
         #Valor eixo X
-        label2 = Label(gerarSubvolume, text='valor do eixo Z: ')
+        label2 = Label(gerarSubvolume, text='valor do eixo X: ')
         label2.grid(column= 0, row= 1, sticky= W, padx= 5, pady= 5)
         
         eixoX = Entry(gerarSubvolume)
@@ -94,7 +94,7 @@ def menuInicial():
         
         # Botão gerar
         btn = Button(gerarSubvolume, text="Gerar SubVolumes", 
-                    command= lambda: gerar(nome.get(), [int(eixoX.get()), int(eixoY.get()), int(eixoZ.get())]))
+                    command= lambda: gerar_pastas(nome.get(), [int(eixoX.get()), int(eixoY.get()), int(eixoZ.get())]))
         btn.grid(column= 1, row= 4, sticky= W, padx= 5, pady= 5)
         
         # Botão Voltar

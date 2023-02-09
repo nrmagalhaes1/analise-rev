@@ -1,102 +1,91 @@
 
-# retorna um vetor com as medidas em X, Y e Z
-def sub13(volumeTotal):
+def subvolume_13(volume_total):
 
-    x = volumeTotal[0]
-    y = volumeTotal[1]
-    particao = volumeTotal[2]/3
+    eixo_x = volume_total[0]
+    eixo_y = volume_total[1]
+    divisao_em_partes = round(volume_total[2]/3, 2)
     
-    interv1_z = [0, round(particao, 2)]
-    interv2_z = [round(particao, 2), round(particao*2, 2)]
-    interv3_z = [round(particao*2, 2), round(particao*3, 2)]
+    primeiro_intervalo_z = [0, divisao_em_partes]
+    segundo_intervalo_z = [divisao_em_partes, divisao_em_partes*2]
+    terceiro_intervalo_z = [divisao_em_partes*2, divisao_em_partes*3]
     
-    sub13 = [[x, y, interv1_z],
-            [x, y, interv2_z],
-            [x, y, interv3_z]]
+    sub13 = [[eixo_x, eixo_y, primeiro_intervalo_z],
+            [eixo_x, eixo_y, segundo_intervalo_z],
+            [eixo_x, eixo_y, terceiro_intervalo_z]]
     
     return sub13
 
 
-# ------------------------------------------------------------------------------------------------------------------------
-# retorna um vetor com as medidas em X, Y e Z
-def sub23(volumeTotal):
+def subvolume_23(volume_total):
 
-    x = volumeTotal[0]
-    y = volumeTotal[1]
-    particao = volumeTotal[2]/3
+    eixo_x = volume_total[0]
+    eixo_y = volume_total[1]
+    divisao_em_partes = round(volume_total[2]/3, 2)
     
-    interv1_z = [0, round(particao*2, 2)]
-    interv2_z = [round(particao, 2), round(particao*3, 2)]
+    primeiro_intervalo_z = [0, divisao_em_partes*2]
+    segundo_intervalo_z = [divisao_em_partes, divisao_em_partes*3]
     
-    sub23 = [[x, y, interv1_z],
-            [x, y, interv2_z]]
+    sub23 = [[eixo_x, eixo_y, primeiro_intervalo_z],
+            [eixo_x, eixo_y, segundo_intervalo_z]]
     
     return sub23
 
 
-# ------------------------------------------------------------------------------------------------------------------------
-# retorna um vetor com as medidas em X, Y e Z
-def sub25(volumeTotal):
+def subvolume_25(volume_total):
 
-    x = volumeTotal[0]
-    y = volumeTotal[1]
-    particao = volumeTotal[2]/5
+    eixo_x = volume_total[0]
+    eixo_y = volume_total[1]
+    divisao_em_partes = round(volume_total[2]/5, 2)
     
-    interv1_z = [0, round(particao*2, 2)]
-    interv2_z = [round(particao, 2), round(particao*3, 2)]
-    interv3_z = [round(particao*2, 2), round(particao*4, 2)]
-    interv4_z = [round(particao*3, 2), round(particao*5, 2)]
+    primeiro_intervalo_z = [0, divisao_em_partes*2]
+    segundo_intervalo_z = [divisao_em_partes, divisao_em_partes*3]
+    terceiro_intervalo_z = [divisao_em_partes*2, divisao_em_partes*4]
+    quarto_intervalo_z = [divisao_em_partes*3, divisao_em_partes*5]
     
-    sub25 = [[x, y, interv1_z],
-               [x, y, interv2_z],
-               [x, y, interv3_z],
-               [x, y, interv4_z]]
+    sub25 = [[eixo_x, eixo_y, primeiro_intervalo_z],
+               [eixo_x, eixo_y, segundo_intervalo_z],
+               [eixo_x, eixo_y, terceiro_intervalo_z],
+               [eixo_x, eixo_y, quarto_intervalo_z]]
     
     return sub25
 
 
-# ------------------------------------------------------------------------------------------------------------------------
-# retorna um vetor com as medidas em X, Y e Z
-def sub35(volumeTotal):
+def subvolume_35(volume_total):
 
-    x = volumeTotal[0]
-    y = volumeTotal[1]
-    particao = volumeTotal[2]/5
+    eixo_x = volume_total[0]
+    eixo_y = volume_total[1]
+    divisao_em_partes = round(volume_total[2]/5, 2)
     
-    interv1_z = [0, round(particao*3, 2)]
-    interv2_z = [round(particao, 2), round(particao*4, 2)]
-    interv3_z = [round(particao*2, 2), round(particao*5, 2)]
+    primeiro_intervalo_z = [0, divisao_em_partes*3]
+    segundo_intervalo_z = [divisao_em_partes, divisao_em_partes*4]
+    terceiro_intervalo_z = [divisao_em_partes*2, divisao_em_partes*5]
     
-    sub35 = [[x, y, interv1_z],
-               [x, y, interv2_z],
-               [x, y, interv3_z]]
+    sub35 = [[eixo_x, eixo_y, primeiro_intervalo_z],
+               [eixo_x, eixo_y, segundo_intervalo_z],
+               [eixo_x, eixo_y, terceiro_intervalo_z]]
     
     return sub35
 
 
-# ------------------------------------------------------------------------------------------------------------------------
-# retorna um vetor com as medidas em X, Y e Z
-def sub34(volumeTotal):
+def subvolume_34(volume_total):
 
-    x = volumeTotal[0]
-    y = volumeTotal[1]
-    particao = volumeTotal[2]/4
+    eixo_x = volume_total[0]
+    eixo_y = volume_total[1]
+    divisao_em_partes = round(volume_total[2]/4, 2)
     
-    interv1_z = [0, round(particao*3, 2)]
-    interv2_z = [round(particao, 2), round(particao*4, 2)]
+    primeiro_intervalo_z = [0, divisao_em_partes*3]
+    segundo_intervalo_z = [divisao_em_partes, divisao_em_partes*4]
     
-    sub34 = [[x, y, interv1_z],
-               [x, y, interv2_z]]
+    sub34 = [[eixo_x, eixo_y, primeiro_intervalo_z],
+               [eixo_x, eixo_y, segundo_intervalo_z]]
     
     return sub34
 
 
-# ------------------------------------------------------------------------------------------------------------------------
-def executar(volume):
-    sub_13 = sub13(volume)
-    sub_23 = sub23(volume)
-    sub_25 = sub25(volume)
-    sub_35 = sub35(volume)
-    sub_34 = sub34(volume)
-    metodo2 = sub_13 + sub_23 + sub_25 + sub_35 + sub_34
-    return metodo2
+def fracionamento_em_z(volume_total):
+
+    return subvolume_13(volume_total) \
+        + subvolume_23(volume_total)\
+        + subvolume_25(volume_total)\
+        + subvolume_35(volume_total)\
+        + subvolume_34(volume_total)

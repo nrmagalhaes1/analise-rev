@@ -11,28 +11,27 @@ from tkinter import Tk
 Tk().withdraw() 
 
 unidadeDeDisco = str(os.path.abspath(os.sep))
-users = str(os.getlogin())
+usuario_atual_win = str(os.getlogin())
 
 
 # ------------------------------------------------------------------------------------------------------------------------
 # Recolhendo os valores das coordenadas X, Y e Z
 
-def gerar(amostra, volume):
-    print( 'Selecione um diretório para criar as pastas')
-    diretorioSalve = askdirectory()
-    Tk().withdraw() 
+def gerar_pastas(nome_da_amostra, volume_total):
+    
+    local_salvamento = askdirectory()
 
-    metodo1 = executar(volume)
-    metodo2 = executar(volume)
-    metodo3 = executar(volume)
+    metodo1 = particao_em_3eixos(volume_total)
+    metodo2 = fracionamento_em_x(volume_total)
+    metodo3 = fracionamento_em_z(volume_total)
 
-    CriarSubamostras(diretorioSalve, amostra)
-    webbrowser.open(os.path.realpath(f'{diretorioSalve}\Amostra {amostra}'))
+    CriarSubamostras(local_salvamento, nome_da_amostra)
+    webbrowser.open(os.path.realpath(f'{local_salvamento}\Amostra {nome_da_amostra}'))
 
 # ------------------------------------------------------------------------------------------------------------------------
 # importando os dados para a planilha método 01
 
-    wb = load_workbook(f'{os.getcwd()}\analise-rev\modulos\Modelo.xlsx')
+    wb = load_workbook(fr'{os.getcwd()}\analise-rev\modulos\Modelo.xlsx')
     ws = wb['Plan1']
 
     Tabela01 = pt.celulasTabela01()
@@ -75,9 +74,9 @@ def gerar(amostra, volume):
 # Copiando o arqivo para área de trabalho
     wb.save(f'{os.getcwd()}\Subvolume da amostra X.xlsx')
     source = rf'{os.getcwd()}\Subvolume da amostra X.xlsx'
-    destination = rf'{diretorioSalve}\Amostra {amostra}'
+    destination = rf'{local_salvamento}\Amostra {nome_da_amostra}'
     shutil.copy(source, destination)
-    os.rename(rf'{diretorioSalve}\Amostra {amostra}\Subvolume da amostra X.xlsx', rf'{diretorioSalve}\Amostra {amostra}\Subvolume da amostra {amostra}.xlsx')
+    os.rename(rf'{local_salvamento}\Amostra {nome_da_amostra}\Subvolume da amostra X.xlsx', rf'{local_salvamento}\Amostra {nome_da_amostra}\Subvolume da amostra {nome_da_amostra}.xlsx')
 
 # ------------------------------------------------------------------------------------------------------------------------
 
