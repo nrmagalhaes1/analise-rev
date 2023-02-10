@@ -3,8 +3,8 @@ from modulos.regrecao import *
 from modulos.RecolherValorPlan import *
 
 def plotResul(x, y, total, novo_x=0, novo_y=0,
-              intervalo_inicial=0, intervalo_final=0,
-              replot='n'):
+            intervalo_inicial=0, intervalo_final=0,
+            replot='n'):
     
     
     partZ_x = x[1:3]
@@ -86,10 +86,10 @@ def plotResul(x, y, total, novo_x=0, novo_y=0,
     plt.ylabel('Phi (%)')
     ax.grid(True)
     ax.legend(['Total', 'PartZ', 'PartX', 'PartY',
-               '1/3 X', '2/3 X', '2/5 X',
-               '3/5 X', '3/4 X', '1/3 Z',
-               '2/3 Z', '2/5 Z', '3/5 Z',
-               '3/4 Z', R2_1, R2_2, R2_3, R2_4],
+            '1/3 X', '2/3 X', '2/5 X',
+            '3/5 X', '3/4 X', '1/3 Z',
+            '2/3 Z', '2/5 Z', '3/5 Z',
+            '3/4 Z', R2_1, R2_2, R2_3, R2_4],
               bbox_to_anchor = (1.05, 1), loc='upper left')   
     plt.tight_layout()
     plt.show()

@@ -43,9 +43,9 @@ def subvolume_25(volume_total):
     quarto_intervalo_z = [divisao_em_partes*3, divisao_em_partes*5]
     
     sub25 = [[eixo_x, eixo_y, primeiro_intervalo_z],
-               [eixo_x, eixo_y, segundo_intervalo_z],
-               [eixo_x, eixo_y, terceiro_intervalo_z],
-               [eixo_x, eixo_y, quarto_intervalo_z]]
+            [eixo_x, eixo_y, segundo_intervalo_z],
+            [eixo_x, eixo_y, terceiro_intervalo_z],
+            [eixo_x, eixo_y, quarto_intervalo_z]]
     
     return sub25
 
@@ -61,8 +61,8 @@ def subvolume_35(volume_total):
     terceiro_intervalo_z = [divisao_em_partes*2, divisao_em_partes*5]
     
     sub35 = [[eixo_x, eixo_y, primeiro_intervalo_z],
-               [eixo_x, eixo_y, segundo_intervalo_z],
-               [eixo_x, eixo_y, terceiro_intervalo_z]]
+            [eixo_x, eixo_y, segundo_intervalo_z],
+            [eixo_x, eixo_y, terceiro_intervalo_z]]
     
     return sub35
 
@@ -77,7 +77,7 @@ def subvolume_34(volume_total):
     segundo_intervalo_z = [divisao_em_partes, divisao_em_partes*4]
     
     sub34 = [[eixo_x, eixo_y, primeiro_intervalo_z],
-               [eixo_x, eixo_y, segundo_intervalo_z]]
+            [eixo_x, eixo_y, segundo_intervalo_z]]
     
     return sub34
 

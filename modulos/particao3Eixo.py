@@ -30,8 +30,8 @@ def particao_eixo_x(particao_eixo_z):
                 [segundo_intervalo_x, eixo_y, segundo_intervalo_z]]
     
     return particao_eixo_x
- 
-   
+
+
 def particao_eixo_y(particao_eixo_y):
 
     divisao_em_partes = particao_eixo_y[0][1]/2
@@ -44,13 +44,13 @@ def particao_eixo_y(particao_eixo_y):
     segundo_intervalo_y = [divisao_em_partes, divisao_em_partes*2]
     
     particao_eixo_y = [[primeiro_intervalo_x, primeiro_intervalo_y, primeiro_intervalo_z],
-               [segundo_intervalo_x, primeiro_intervalo_y, primeiro_intervalo_z],
-               [primeiro_intervalo_x, primeiro_intervalo_y, segundo_intervalo_z],
-               [segundo_intervalo_x, primeiro_intervalo_y, segundo_intervalo_z],
-               [primeiro_intervalo_x, segundo_intervalo_y, primeiro_intervalo_z],
-               [segundo_intervalo_x, segundo_intervalo_y, primeiro_intervalo_z],
-               [primeiro_intervalo_x, segundo_intervalo_y, segundo_intervalo_z],
-               [segundo_intervalo_x, segundo_intervalo_y, segundo_intervalo_z]]
+            [segundo_intervalo_x, primeiro_intervalo_y, primeiro_intervalo_z],
+            [primeiro_intervalo_x, primeiro_intervalo_y, segundo_intervalo_z],
+            [segundo_intervalo_x, primeiro_intervalo_y, segundo_intervalo_z],
+            [primeiro_intervalo_x, segundo_intervalo_y, primeiro_intervalo_z],
+            [segundo_intervalo_x, segundo_intervalo_y, primeiro_intervalo_z],
+            [primeiro_intervalo_x, segundo_intervalo_y, segundo_intervalo_z],
+            [segundo_intervalo_x, segundo_intervalo_y, segundo_intervalo_z]]
     
     return particao_eixo_y
     
