@@ -46,7 +46,7 @@ A segunda parte do código irá pegar a planilha preenchida com todos os 42 test
 
 ## ✔️ Técnicas e tecnologias utilizadas
 
-- ``Python 3``
+ <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg" width="40" height="40"/>
 
 ## 📁 Acesso ao projeto
 Você pode acessar os arquivos do projeto clicando [aqui](https://github.com/nrmagalhaes1/analise-rev).
