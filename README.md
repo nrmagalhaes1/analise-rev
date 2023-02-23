@@ -7,7 +7,7 @@
 **Sobre o projeto:** Esse código tem o intuito de automatizar o processo que analisa o volume elementar representativo (REV) de amostras reconstruidas digitalmente através de imagens obtidas por microtomografias de raios X. Tal processo soluciona a dificuldade de estabelecer o volume que seja capaz de representar as propriedades petrofísicas em uma escala maior. Baseando-se na porosidade como a propriedade petrofísica para o estudo, a determinação do REV das amostras tem como objetivo obter um volume que seja estatisticamente representativo o bastante para fins de simulação numérica em escala de poros.
 > **Saiba mais sobre o estudo aqui:** [PEREIRA_F_P_2018_REV.pdf](https://github.com/nrmagalhaes1/analise-rev/files/10676954/PEREIRA_F_P_2018_REV.pdf) ; [Resumo_expandido_AM.pdf](https://github.com/nrmagalhaes1/analise-rev/files/10676967/Resumo_expandido_AM.pdf)
 
-
+# 🛠️ Funcionalidades
 
 - `Funcionalidade 1`: subdivisão da amostra
 - `Funcionalidade 1a`: aplicar método das três partições em cada eixo ortogonal
@@ -35,6 +35,9 @@ python -m pip install scikit-learn
 
 **Volte a interface e plote o gráfico, selecionando o arquivo Excel preenchido com os valores de PHi e Volume :**
 ![2](https://user-images.githubusercontent.com/102970648/217297392-00c8a78a-9893-4681-a328-8220d5fb7136.png)
+
+![pastas](https://user-images.githubusercontent.com/102970648/220923190-cb81acf4-7f75-45ea-b22f-e5f5e8d71fa0.png)
+
 
 ## ✔️ Técnicas e tecnologias utilizadas
 
