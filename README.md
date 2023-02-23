@@ -29,12 +29,16 @@ python -m pip install numpy
 python -m pip install scikit-learn
 ```
 
-**Rode o arquivo interface.py, nele você precisará gerar as repartições das amostras (Gerar Subvolumes > Inserir valores dos eixos > Gerar)**
+**Parte 01 do código: Rode o arquivo interface.py, nele você precisará gerar as repartições das amostras (Gerar Subvolumes > Inserir valores dos eixos > Gerar)**
+
+Aqui você entra com as medidas da amostra e o código irá fornecer, através de uma planilha, todas os intervalos de teste para 42 subpartições. Além disso, irá tambem criar uma pasta para você colocar o resultado de cada teste (conforme for realizando no software GeoDict)
 
 ![Parte-01-programa-editado](https://user-images.githubusercontent.com/102970648/220936625-a0475453-197c-4c2c-9b83-4e234acf1702.gif)
 
 
-**Volte a interface e plote o gráfico, selecionando o arquivo Excel preenchido com os valores de PHi e Volume :**
+**Parte 02 do código: Volte a interface e plote o gráfico, selecionando o arquivo Excel preenchido com os valores de PHi e Volume :**
+
+A segunda parte do código irá pegar a planilha preenchida com todos os 42 testes realizado e irá plotar um gráfico onde já estará aplicado linhas de tendências de grau 1, 2, 3 e exponencial. Além disso você poderá definir novos ontervalos para analisar como ele se comporta em cada campo.
 
 ![Parte-02-do-programa-ediitada](https://user-images.githubusercontent.com/102970648/220936272-9c6037b1-ac64-4a80-a981-750385397139.gif)
 
