@@ -31,11 +31,12 @@ python -m pip install scikit-learn
 
 **Rode o arquivo interface.py, nele você precisará gerar as repartições das amostras (Gerar Subvolumes > Inserir valores dos eixos > Gerar)**
 
-![interface](https://user-images.githubusercontent.com/102970648/217296265-847d255e-6244-4d9d-bdcd-f87f7df99a01.png) ![gerar](https://user-images.githubusercontent.com/102970648/217296141-520a57d0-126c-4361-bc95-ed1c32ae00ec.png)
+![Parte-01-programa-editado](https://user-images.githubusercontent.com/102970648/220936625-a0475453-197c-4c2c-9b83-4e234acf1702.gif)
+
 
 **Volte a interface e plote o gráfico, selecionando o arquivo Excel preenchido com os valores de PHi e Volume :**
-![2](https://user-images.githubusercontent.com/102970648/217297392-00c8a78a-9893-4681-a328-8220d5fb7136.png)
 
+![Parte-02-do-programa-ediitada](https://user-images.githubusercontent.com/102970648/220936272-9c6037b1-ac64-4a80-a981-750385397139.gif)
 
 
 
