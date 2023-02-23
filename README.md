@@ -36,7 +36,7 @@ python -m pip install scikit-learn
 **Volte a interface e plote o gráfico, selecionando o arquivo Excel preenchido com os valores de PHi e Volume :**
 ![2](https://user-images.githubusercontent.com/102970648/217297392-00c8a78a-9893-4681-a328-8220d5fb7136.png)
 
-![pastas](https://user-images.githubusercontent.com/102970648/220923190-cb81acf4-7f75-45ea-b22f-e5f5e8d71fa0.png)
+
 
 
 ## ✔️ Técnicas e tecnologias utilizadas
