@@ -1,12 +1,14 @@
+# Módulo para plotagem de gráficos de dispersão usando Matplotlib
 import matplotlib.pyplot as plt
-from regrecao import *
-from Recolher_valor_plan import *
+from regrecao import *  # Importa funções de regressão
+from Recolher_valor_plan import *  # Importa função para coletar valores do plano
 
-    
+# Função para plotar resultados e interagir com gráficos
 def plotResul(x, y, total, novo_x=0, novo_y=0,
             intervalo_inicial=0, intervalo_final=0,
             replot='n'):
     
+    # Lista de pontos para diferentes partes do gráfico
     vetorx = []
     vetory = []
 
@@ -19,10 +21,11 @@ def plotResul(x, y, total, novo_x=0, novo_y=0,
     infx= [3.111554313492997, 6.134785499611827, 7.387266991003915, 10.540065227956411, 12.569949024350482, 25.0515749213268]
     infy= [6.087785114717402, 6.640899832120872, 7.38547733631785, 7.470571908226075, 7.747129266927811, 8.215149412423054]
 
-    
+    # Adiciona valores totais ao conjunto de dados
     x.append(total[1])
     y.append(total[0])
 
+    # Separa os dados em diferentes partes para plotagem
     partZ_x = x[1:3]
     partZ_y = y[1:3]
 
@@ -53,10 +56,12 @@ def plotResul(x, y, total, novo_x=0, novo_y=0,
     part15X_x = x[33:38]
     part15X_y = y[33:38]    
 
+    # Configurações do gráfico
     fig, ax = plt.subplots(figsize = (9, 6))
 
     ax.scatter(total[1], total[0], s = 60, marker = "D");
     
+    # Plota diferentes conjuntos de dados no gráfico
     ax.scatter(partZ_x, partZ_y, s=60, c='#000000', alpha=0.7, edgecolors="w");
     ax.scatter(partX_x, partX_y, s=60, c='#FF4500', alpha=0.7, edgecolors="w");
     ax.scatter(partY_x, partY_y, s=60, c='#B03060', alpha=0.7, edgecolors="w");
@@ -70,18 +75,21 @@ def plotResul(x, y, total, novo_x=0, novo_y=0,
     ax.scatter(part14X_x, part14X_y, s=60, c='#20B2AA', alpha=0.7, edgecolors="w");
     ax.scatter(part15X_x, part15X_y, s=60, c='#BDB76B', alpha=0.7, edgecolors="w");
 
-    
+     # Adiciona linhas horizontais no gráfico
     for i in np.arange(intervalo_inicial, intervalo_final, 0.1):
         plt.axhline(y = i, color = '#D3D3D3', linestyle = '-', alpha= 0.2)
     
+# Determina as regressões ou reinicia a plotagem com base nas opções
     if replot == 'n':
-        sup = grau(supx,supy, 2,'red', 'Grau 2')
-        mid = grau(midx,midy, 2,'red', 'Grau 2')
-        inf = grau(infx,infy, 2,'red', 'Grau 2') 
+        # Calcula regressões para diferentes partes dos dados
+        sup = grau(supx, supy, 2, 'red', 'Grau 2')
+        mid = grau(midx, midy, 2, 'red', 'Grau 2')
+        inf = grau(infx, infy, 2, 'red', 'Grau 2')
     else:
-        R2_2 = grau(novo_x, novo_y, 2,'red', f'Grau 2')
-
+        # Calcula regressão com novos dados
+        R2_2 = grau(novo_x, novo_y, 2, 'red', f'Grau 2')
     
+     # Configurações adicionais do gráfico
     plt.title('Subvolumes', size = 20)
     plt.xlabel('Volume (cm_3)')
     plt.ylabel('Phi (%)')
@@ -93,9 +101,10 @@ def plotResul(x, y, total, novo_x=0, novo_y=0,
               bbox_to_anchor = (1.05, 1), loc='upper left')   
     plt.tight_layout()
 
+    # Loop para interação com o gráfico
     while True:
         try:
-            # Aguarda um clique do mouse
+            # Aguarda um clique do mouse e exibe as coordenadas
             click = plt.ginput(1, timeout=0)
             # Se um clique foi detectado, exibe as coordenadas
             if click:
@@ -104,10 +113,10 @@ def plotResul(x, y, total, novo_x=0, novo_y=0,
                 
                 print('Voce clicou em x =', vetorx, 'e y =', vetory)
         except KeyboardInterrupt:
-            # Se o usu�rio pressionar Ctrl+C, encerra o loop
+            # Encerra o loop se o usuário pressionar Ctrl+C
             break
 
-    # Fecha o gr�fico ao final
+    # Fecha o gr�fico ao final
     plt.close(fig)
     plt.show()
 

@@ -1,17 +1,33 @@
-from tkinter import *
-from gera_pasta import *
-from ordena import *
-from Recolher_valor_plan import *
-from plotar_regrecao import *
-from tkinter.filedialog import askopenfilename
+"""
+Módulo de Interface Gráfica para Operações Estatísticas e de Análise de Dados REV
 
+Este módulo oferece uma interface gráfica para realizar diversas operações estatísticas e de análise de dados REV.
+Ele inclui funcionalidades como geração de pastas, ordenação de valores, recolhimento de valores de um plano e
+plotagem de regressões.
+
+Última atualização: Julho de 2023
+Desenvolvedor: Nathan Rangel Magalhães
+
+O código a seguir contém uma série de funções que interagem com uma interface gráfica (GUI)
+para permitir a execução de diversas operações estatísticas e análise de dados. 
+
+"""
+from tkinter import *
+from gera_pasta import *  # Importa funções para gerar pastas
+from ordena import *  # Importa funções para ordenação
+from Recolher_valor_plan import *  # Importa funções para recuperar valores do plano
+from plotar_regrecao import *  # Importa funções para plotar regressão
+from tkinter.filedialog import askopenfilename  # Importa função para abrir diálogo de seleção de arquivo
+
+# Função para plotar um novo gráfico com base nos intervalos fornecidos
 def PlotarNovoGrafico(x, y, intervalo_inicial, intervalo_final, total):
-        
+
+    # Limpa os dados com base nos intervalos    
     new_x, new_y = limpar(x, y, intervalo_inicial, intervalo_final)
     new_x, new_y = crescente(new_x, new_y)
     plotResul(x, y, total, new_x, new_y, intervalo_inicial, intervalo_final, replot= 'y')
 
-
+# Função para criar a interface gráfica para definir intervalos e plotar gráficos
 def PlotarGraficoIntev(volume, phi, total):
                 
     PlotarGraficoIntev = Tk()
@@ -22,27 +38,27 @@ def PlotarGraficoIntev(volume, phi, total):
     PlotarGraficoIntev.columnconfigure(0, weight=1)
     PlotarGraficoIntev.columnconfigure(1, weight=3)
             
-    # intervalo m�nimo
+    # intervalo m�nimo
     label1 = Label(PlotarGraficoIntev, text='intervalo minimo:')
     label1.grid(column= 0, row= 0, sticky= E, padx= 5, pady= 5)
             
     inv_min = Entry(PlotarGraficoIntev)
     inv_min.grid(column= 1, row= 0, sticky= E, padx= 5, pady= 5)
             
-    # intervalo m�ximo
+    # intervalo m�ximo
     label2 = Label(PlotarGraficoIntev, text='intervalo maximo:')
     label2.grid(column= 0, row= 1, sticky= W, padx= 5, pady= 5)
             
     inv_max = Entry(PlotarGraficoIntev)
     inv_max.grid(column= 1, row= 1, sticky= E, padx= 5, pady= 5)
             
-    # Bot�o de gerar
+    # Bot�o de gerar
     btn = Button(PlotarGraficoIntev, text="Gerar", command= lambda: f'{PlotarNovoGrafico(volume, phi, int(inv_min.get()), int(inv_max.get()), total)} {PlotarGraficoIntev.mainloop()}')
     btn.grid(column= 1, row= 3, sticky= E, padx= 5, pady= 5)
 
     plotResul(volume, phi, total)
 
-
+# Função para abrir um arquivo e plotar um gráfico com base nos dados
 def PlotarGrafico():         
 
     filename = askopenfilename() # Isto te permite selecionar um arquivo
@@ -54,7 +70,7 @@ def PlotarGrafico():
     
     PlotarGraficoIntev(volume, phi, total)
 
-
+# Função para gerar subvolumes com base nos valores inseridos
 def gerarSubvolume():
     gerarSubvolume = Tk()
     gerarSubvolume.title("Gerar Subvolume")
@@ -92,19 +108,19 @@ def gerarSubvolume():
     eixoZ = Entry(gerarSubvolume)
     eixoZ.grid(column= 1, row= 3, sticky= E, padx= 5, pady= 5)
         
-    # Bot�o gerar
+    # Bot�o gerar
     btn = Button(gerarSubvolume, text="Gerar SubVolumes", 
                     command= lambda: gerar_pastas(nome.get(), [int(eixoX.get()), int(eixoY.get()), int(eixoZ.get())]))
     btn.grid(column= 1, row= 4, sticky= W, padx= 5, pady= 5)
         
-    # Bot�o Voltar
+    # Bot�o Voltar
     btn = Button(gerarSubvolume, text="Voltar", 
                     command= lambda: [gerarSubvolume.destroy(), menuInicial()])
     btn.grid(column= 0, row= 4, sticky= W, padx= 5, pady= 5)
             
     gerarSubvolume.mainloop()
 
-
+# Função para exibir o menu inicial com opções disponíveis
 def menuInicial():
     
     menuInicial = Tk()
@@ -121,7 +137,8 @@ def menuInicial():
     btn.pack()
     btn2.pack()
     menuInicial.mainloop()
-
+    
+# Chama a função para exibir o menu inicial ao iniciar o programa
 menuInicial()
 
 

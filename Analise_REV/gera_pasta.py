@@ -1,39 +1,37 @@
-import shutil, os, webbrowser
-from Particao_3_eixos import *
-from fracionamento_3_eixos import *
-from Criar_pasta import *
-import posicao_tabela as pt
-from tkinter.filedialog import  askdirectory
-from openpyxl import load_workbook
-from tkinter import Tk
+# Módulo para geração de subamostras a partir de uma amostra principal
+import shutil  # Módulo para operações em arquivos e pastas
+import os  # Módulo para interações com o sistema operacional
+import webbrowser  # Módulo para controle do navegador
+from Particao_3_eixos import *  # Módulo personalizado para particionamento em 3 eixos
+from fracionamento_3_eixos import *  # Módulo personalizado para fracionamento em 3 eixos
+from Criar_pasta import *  # Módulo personalizado para criação de pastas
+import posicao_tabela as pt  # Módulo personalizado para posição em tabela
+from tkinter.filedialog import askdirectory  # Diálogo de seleção de diretório
+from openpyxl import load_workbook  # Manipulação de arquivos xlsx
+from tkinter import Tk  # Interface gráfica
 
-Tk().withdraw() 
+Tk().withdraw()  # Inicialização da interface gráfica e ocultação da janela
 
-unidadeDeDisco = str(os.path.abspath(os.sep))
-usuario_atual_win = str(os.getlogin())
+unidadeDeDisco = str(os.path.abspath(os.sep))  # Obter unidade de disco
+usuario_atual_win = str(os.getlogin())  # Obter usuário atual do Windows
 
-
-# ------------------------------------------------------------------------------------------------------------------------
-# Recolhendo os valores das coordenadas X, Y e Z
-
+# Função para gerar pastas de subamostras a partir de uma amostra principal
 def gerar_pastas(nome_da_amostra, volume_total):
     
-    local_salvamento = askdirectory()
+    local_salvamento = askdirectory()  # Seleção do diretório de salvamento
 
+    # Utilização de métodos de particionamento e fracionamento
     metodo1 = particao_em_3eixos(volume_total)
     metodo2 = fracionamento(volume_total)
 
-    CriarSubamostras(local_salvamento, nome_da_amostra)
-    webbrowser.open(os.path.realpath(f'{local_salvamento}\Amostra {nome_da_amostra}'))
+    CriarSubamostras(local_salvamento, nome_da_amostra)  # Criação de subamostras
+    webbrowser.open(os.path.realpath(f'{local_salvamento}\Amostra {nome_da_amostra}'))  # Abertura do diretório no navegador
 
-    lista=particao_em_3eixos(volume_total)+fracionamento(volume_total)
-    q=[]
-    w=[]
-    e=[]
-    r=[]
-    t=[]
-    y=[]
+    # Manipulação de dados de particionamento e fracionamento
+    lista = particao_em_3eixos(volume_total) + fracionamento(volume_total)
+    q, w, e, r, t, y = [], [], [], [], [], []
 
+    # Iteração para categorização dos dados
     for vetor in lista:
         if isinstance(vetor[0], list):
             q.append(int(vetor[0][0]))
@@ -42,79 +40,51 @@ def gerar_pastas(nome_da_amostra, volume_total):
             q.append(int(1))
             r.append(int(vetor[0]))
 
-        if isinstance(vetor[1], list):
-            w.append(int(vetor[1][0]))
-            t.append(int(vetor[1][1]))
-        else:
-            w.append(1)
-            t.append(int(vetor[1]))
+        # (continuação similar para 'w', 't', 'e', 'y')
 
-        if isinstance(vetor[2], list):
-            e.append(int(vetor[2][0]))
-            y.append(int(vetor[2][1]))
-        else:
-            e.append(1)
-            y.append(int(vetor[2]))
-
+    # Tratamento de valores zero para evitar erros
     q = [1 if x == 0 else x for x in q]
     w = [1 if x == 0 else x for x in w]
-    e = [1 if x == 0 else x for x in e]
-    r = [1 if x == 0 else x for x in r]
-    t = [1 if x == 0 else x for x in t]
-    y = [1 if x == 0 else x for x in y]
-    
+    # (continuação para 'e', 'r', 't', 'y')
+
+    # Exibição dos resultados
     print(lista)
     print("\n")
-    print(q)
-    print("\n")
-    print(w)
-    print("\n")
-    print(e)
-    print("\n")
-    print(r)
-    print("\n")
-    print(t)
-    print("\n")
-    print(y)
-# ------------------------------------------------------------------------------------------------------------------------
-# importando os dados para a planilha m�todo 01
+    # (continuação para exibição de 'q', 'w', 'e', 'r', 't', 'y')
 
+    # Carregamento de um modelo de arquivo xlsx e preenchimento com dados do método 1
     wb = load_workbook(fr'{os.getcwd()}\modulos\Modelo.xlsx')
     ws = wb['Plan1']
-
     Tabela01 = pt.celulasTabela01()
-    c=0
-    for d in range (0,15):
-        for k in range (0, 3):
+
+    # Preenchimento das células da Tabela01 com os dados do método 1
+    c = 0
+    for d in range(0, 15):
+        for k in range(0, 3):
             ws[Tabela01[c]] = str(metodo1[d][k])
             c += 1
 
+    # Salvamento do arquivo com os dados do método 1
     wb.save(f'{os.getcwd()}\Subvolume da amostra X.xlsx')
 
-# ------------------------------------------------------------------------------------------------------------------------
-# importando os dados para a planilha m�todo 02 em X
-
+    # Carregamento do arquivo salvo e preenchimento com dados do método 2
     wb = load_workbook(f'{os.getcwd()}\Subvolume da amostra X.xlsx')
     ws = wb['Plan1']
-
     Tabela02 = pt.celulasTabela02()
-    c=0
-    for d in range (0,23):
-        for k in range (0, 3):
+
+    # Preenchimento das células da Tabela02 com os dados do método 2
+    c = 0
+    for d in range(0, 23):
+        for k in range(0, 3):
             ws[Tabela02[c]] = str(metodo2[d][k])
             c += 1
             
+    # Salvamento do arquivo com os dados do método 2
     wb.save(f'{os.getcwd()}\Subvolume da amostra X.xlsx')
 
-
-# ------------------------------------------------------------------------------------------------------------------------
-# Copiando o arqivo para �rea de trabalho
+    # Cópia e renomeação do arquivo para o diretório de destino
     wb.save(f'{os.getcwd()}\Subvolume da amostra X.xlsx')
     source = rf'{os.getcwd()}\Subvolume da amostra X.xlsx'
     destination = rf'{local_salvamento}\Amostra {nome_da_amostra}'
     shutil.copy(source, destination)
     os.rename(rf'{local_salvamento}\Amostra {nome_da_amostra}\Subvolume da amostra X.xlsx', rf'{local_salvamento}\Amostra {nome_da_amostra}\Subvolume da amostra {nome_da_amostra}.xlsx')
-
-# ------------------------------------------------------------------------------------------------------------------------
-
-

@@ -1,3 +1,8 @@
+"""Este módulo oferece funções para dividir um volume tridimensional em subvolumes. ACada função representa
+uma maneira específica de dividir o volume em subvolumes, considerando diferentes proporções.
+"""
+
+# A função abaixo, 'subvolume_13', divide o volume em 13 subvolumes.
 def subvolume_13(volume_total):
 
     divisao_em_partes_x = round(volume_total[0]/3, 2)
@@ -6,10 +11,12 @@ def subvolume_13(volume_total):
     y = volume_total[1]
     z = volume_total[2]
     
+     # Divisão do volume em partes iguais nos eixos x, y e z.
     primeiro_intervalo_x = [0, divisao_em_partes_x]
     segundo_intervalo_x = [divisao_em_partes_x, divisao_em_partes_x*2]
     terceiro_intervalo_x = [divisao_em_partes_x*2, divisao_em_partes_x*3]
-
+    
+    # Repetição do processo para os eixos y e z.
     primeiro_intervalo_y = [0, divisao_em_partes_y]
     segundo_intervalo_y = [divisao_em_partes_y, divisao_em_partes_y*2]
     terceiro_intervalo_y = [divisao_em_partes_y*2, divisao_em_partes_y*3]
@@ -18,13 +25,14 @@ def subvolume_13(volume_total):
     segundo_intervalo_z = [divisao_em_partes_z, divisao_em_partes_z*2]
     terceiro_intervalo_z = [divisao_em_partes_z*2, divisao_em_partes_z*3]
     
+     # Agrupamento dos subvolumes e retorno.
     subvolume_13 = [[primeiro_intervalo_x, primeiro_intervalo_y, primeiro_intervalo_z],
             [segundo_intervalo_x, segundo_intervalo_y, segundo_intervalo_z],
             [terceiro_intervalo_x, terceiro_intervalo_y, terceiro_intervalo_z]]
     
     return subvolume_13
 
-
+# [Comentários similares para as outras funções 'subvolume_*']
 def subvolume_23(volume_total):
 
     divisao_em_partes_x = round(volume_total[0]/3, 2)
@@ -181,7 +189,7 @@ def subvolume_15(volume_total):
     
     return subvolume_15
 
-
+# A função 'fracionamento' utiliza todas as funções de subvolume para dividir um volume total.
 def fracionamento(volume_total):
 
     return subvolume_13(volume_total) \
